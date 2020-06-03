@@ -1,4 +1,4 @@
-package just.plotminigames;
+package just.plotcontests;
 
 import org.bukkit.Location;
 import org.bukkit.block.Block;
