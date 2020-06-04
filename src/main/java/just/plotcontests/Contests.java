@@ -131,7 +131,7 @@ public class Contests extends JavaPlugin implements TabCompleter, Listener {
                             ChatColor.YELLOW + "/" + l + " <player>" + ChatColor.GOLD + ": Teleport to a certain player's entry.",
                     });
                 } else if (cmd.equalsIgnoreCase("enter") || cmd.equalsIgnoreCase("submit")) {
-                    Plot t = new BukkitLocation((Player) sender).getOwnedPlotAbs();
+                    Plot t = new BukkitLocation((Player) sender).getOwnedPlot();
                     if (t == null) {
                         sender.sendMessage(ChatColor.RED + "You must be standing over a plot to do that!");
                         return false;
@@ -156,7 +156,7 @@ public class Contests extends JavaPlugin implements TabCompleter, Listener {
                     sender.sendMessage(ChatColor.GOLD + "This week's theme is " + ChatColor.YELLOW + Theme.theme());
                     sender.sendMessage(ChatColor.GOLD + "You have " + ChatColor.YELLOW + Theme.timeRemaining() + ChatColor.GOLD + " to enter!");
                 } else if (cmd.equalsIgnoreCase("vote")) {
-                    Plot t = new BukkitLocation((Player) sender).getOwnedPlotAbs();
+                    Plot t = new BukkitLocation((Player) sender).getOwnedPlot();
                     if (t == null) {
                         sender.sendMessage(ChatColor.RED + "You must be standing over a plot to do that!");
                         return false;
@@ -241,7 +241,7 @@ public class Contests extends JavaPlugin implements TabCompleter, Listener {
                 } else if (cmd.equalsIgnoreCase("theme")) {
                     sender.sendMessage(ChatColor.GOLD + "Last week's theme was " + ChatColor.YELLOW + Theme.lastWeekTheme());
                 } else if (cmd.equalsIgnoreCase("winner")) {
-                    Plot t = new BukkitLocation((Player) sender).getOwnedPlotAbs();
+                    Plot t = new BukkitLocation((Player) sender).getOwnedPlot();
                     if (t == null) {
                         sender.sendMessage(ChatColor.RED + "You must be standing over a plot to do that!");
                         return false;
@@ -336,7 +336,7 @@ public class Contests extends JavaPlugin implements TabCompleter, Listener {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String l, String[] args) {
         if (command.getName().equals("minigame")) {
-            ArrayList<String> ret = new ArrayList<String>();
+            ArrayList<String> ret = new ArrayList<>();
             if (args.length == 1) {
                 for (String s : new String[]{
                         "enter", "theme", "vote", "winner", "random"
@@ -355,7 +355,7 @@ public class Contests extends JavaPlugin implements TabCompleter, Listener {
 
     private static Plot getPlotById(String world, String pid) {
         for (PlotArea plotArea : PlotSquared.get().getPlotAreas(world)) {
-            Plot plot = plotArea.getOwnedPlotAbs(PlotId.fromString(pid));
+            Plot plot = plotArea.getOwnedPlot(PlotId.fromString(pid));
 
             if (plot != null) {
                 return plot;
