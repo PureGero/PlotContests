@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class Entry {
-    private static HashMap<String, ArrayList<Entry>> entries = new HashMap<String, ArrayList<Entry>>();
+    private static HashMap<String, ArrayList<Entry>> entries = new HashMap<>();
     public UUID uuid;
     public String world;
     public String plotid;
