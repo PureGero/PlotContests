@@ -18,14 +18,14 @@ public class ContestCommand implements CommandExecutor, TabCompleter {
     public ContestCommand(Contests contests) {
         this.contests = contests;
 
-        PluginCommand contestJudge = contests.getCommand("contestjudge");
+        PluginCommand contest = contests.getCommand("contest");
 
-        if (contestJudge == null) {
+        if (contest == null) {
             throw new RuntimeException("Command /contestjudge is not registered in the plugin.yml");
         }
 
-        contestJudge.setExecutor(this);
-        contestJudge.setTabCompleter(this);
+        contest.setExecutor(this);
+        contest.setTabCompleter(this);
     }
 
     @Override
