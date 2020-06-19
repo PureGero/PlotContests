@@ -20,10 +20,10 @@ Compiling
 =========
 Compile the source into a jar with gradle:
 
-    $ ./gradlew jar
+    $ ./gradlew build
 
 Or on widows:
 
-    > gradlew jar
+    > gradlew build
 
 The plugin jar will be found in `build/libs`. Enjoy!

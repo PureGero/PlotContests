@@ -1,15 +1,5 @@
 package just.plotcontests;
 
-import com.plotsquared.core.PlotSquared;
-import com.plotsquared.core.plot.Plot;
-import com.plotsquared.core.plot.PlotArea;
-import com.plotsquared.core.plot.PlotId;
-import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.ClickEvent.Action;
-import net.md_5.bungee.api.chat.HoverEvent;
-import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -92,17 +82,5 @@ public class Contests extends JavaPlugin {
     @Override
     public void onDisable() {
 
-    }
-
-    public static Plot getPlotById(String world, String pid) {
-        for (PlotArea plotArea : PlotSquared.get().getPlotAreas(world)) {
-            Plot plot = plotArea.getOwnedPlot(PlotId.fromString(pid));
-
-            if (plot != null) {
-                return plot;
-            }
-        }
-
-        return null;
     }
 }

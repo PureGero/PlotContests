@@ -15,12 +15,12 @@ repositories {
     url "https://maven.enginehub.org/repo/"
   }
   maven {
-    url "https://mvn.intellectualsites.com/content/groups/public/"
+    url "https://raw.githubusercontent.com/PureGero/JustPlots/repository/"
   }
   mavenLocal()
 }
 
-version = "0.1"
+version = "0.2.0"
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
 
@@ -34,7 +34,7 @@ configurations {
 dependencies {
   compileOnly "org.spigotmc:spigot:$bukkit_version"
   compileOnly "com.sk89q.worldedit:worldedit-bukkit:7.0.0-SNAPSHOT"
-  implementation("com.plotsquared:PlotSquared:5.11.1")
+  compileOnly "just.plots:justplots:0.9.1"
 }
 
 jar {

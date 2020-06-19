@@ -1,11 +1,13 @@
 package just.plotcontests;
 
-import com.plotsquared.core.player.PlotPlayer;
-import com.plotsquared.core.plot.Plot;
+import just.plots.JustPlots;
+import just.plots.Plot;
+import just.plots.PlotId;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.*;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -47,7 +49,7 @@ public class ContestJudgeCommand implements CommandExecutor, TabCompleter {
         } else if (cmd.equalsIgnoreCase("theme")) {
             sender.sendMessage(ChatColor.GOLD + "Last week's theme was " + ChatColor.YELLOW + Theme.lastWeekTheme());
         } else if (cmd.equalsIgnoreCase("winner")) {
-            Plot t = new BukkitLocation((Player) sender).getOwnedPlot();
+            Plot t = JustPlots.getPlotAt((Entity) sender);
             if (t == null) {
                 sender.sendMessage(ChatColor.RED + "You must be standing over a plot to do that!");
                 return false;
@@ -91,12 +93,12 @@ public class ContestJudgeCommand implements CommandExecutor, TabCompleter {
                 Entry e = Entry.getLastWeek(i);
                 OfflinePlayer p = Bukkit.getOfflinePlayer(e.uuid);
                 Player tp = (Player) sender;
-                Plot t = Contests.getPlotById(e.world, e.plotid);
+                Plot t = JustPlots.getPlot(e.world, new PlotId(e.plotid));
                 if (t == null) {
                     tp.sendMessage(ChatColor.RED + "Failed to find " + p.getName() + "'s plot");
                     return false;
                 }
-                t.getHome(home -> PlotPlayer.wrap(tp).teleport(home));
+                tp.teleport(t.getHome());
                 tp.sendMessage(ChatColor.GREEN + "Teleported to " + p.getName() + "'s entry!");
             } catch (NumberFormatException | IndexOutOfBoundsException | NullPointerException e2) {
                 OfflinePlayer p = Bukkit.getPlayerExact(cmd);
@@ -108,12 +110,12 @@ public class ContestJudgeCommand implements CommandExecutor, TabCompleter {
                     return false;
                 }
                 Player tp = (Player) sender;
-                Plot t = Contests.getPlotById(e.world, e.plotid);
+                Plot t = JustPlots.getPlot(e.world, new PlotId(e.plotid));
                 if (t == null) {
                     tp.sendMessage(ChatColor.RED + "Failed to find " + p.getName() + "'s plot");
                     return false;
                 }
-                t.getHome(home -> PlotPlayer.wrap(tp).teleport(home));
+                tp.teleport(t.getHome());
                 tp.sendMessage(ChatColor.GREEN + "Teleported to " + p.getName() + "'s entry!");
             }
         }

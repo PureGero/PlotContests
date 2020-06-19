@@ -1,9 +1,9 @@
 name: PlotContests
-version: 0.1.0
+version: 0.2.0
 main: just.plotcontests.Contests
 author: PureGero
 api-version: 1.13
-depend: [PlotSquared]
+depend: [JustPlots]
 commands:
     contest:
         description: Plot contests command.
