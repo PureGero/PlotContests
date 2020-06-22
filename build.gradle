@@ -34,7 +34,7 @@ configurations {
 dependencies {
   compileOnly "org.spigotmc:spigot:$bukkit_version"
   compileOnly "com.sk89q.worldedit:worldedit-bukkit:7.0.0-SNAPSHOT"
-  compileOnly "just.plots:justplots:0.9.1"
+  compileOnly "just.plots:justplots:0.9.3"
 }
 
 jar {

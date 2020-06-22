@@ -1,8 +1,8 @@
 package just.plotcontests;
 
-import just.plots.JustPlots;
-import just.plots.Plot;
-import just.plots.PlotId;
+import net.justminecraft.plots.JustPlots;
+import net.justminecraft.plots.Plot;
+import net.justminecraft.plots.PlotId;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
