@@ -3,13 +3,13 @@ apply plugin: "eclipse"
 apply plugin: "idea"
 
 buildscript {
-  ext.bukkit_version = "1.15.2-R0.1-SNAPSHOT"
+  ext.bukkit_version = "1.17-R0.1-SNAPSHOT"
 }
 
 repositories {
   mavenCentral()
   maven {
-    url "https://oss.sonatype.org/content/repositories/snapshots/"
+    url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
   }
   maven {
     url "https://maven.enginehub.org/repo/"
