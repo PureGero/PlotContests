@@ -1,6 +1,6 @@
-name: PlotContests
-version: 0.2.0
-main: just.plotcontests.Contests
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
 author: PureGero
 api-version: 1.13
 depend: [JustPlots]

@@ -11,8 +11,7 @@ eclipse
 bin
 *~
 
-build
-.gradle
-out
+target
+*.sh
 
 *-private.sh
