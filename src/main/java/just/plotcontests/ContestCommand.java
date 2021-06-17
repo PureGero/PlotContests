@@ -162,7 +162,7 @@ public class ContestCommand implements CommandExecutor, TabCompleter {
                 }
             }
 
-            for (Entry entry : Entry.getEntries(Theme.lastWeekStr())) {
+            for (Entry entry : Entry.getEntries(Theme.thisWeekStr())) {
                 OfflinePlayer player = Bukkit.getOfflinePlayer(entry.uuid);
 
                 if (player.getName() != null && player.getName().toLowerCase().startsWith(args[0].toLowerCase())) {
