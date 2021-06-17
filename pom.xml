@@ -12,7 +12,7 @@
     <name>PlotContests</name>
     
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>8</java.version>
         <spigot.version>1.13.2-R0.1-SNAPSHOT</spigot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

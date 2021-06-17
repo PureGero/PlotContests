@@ -3,8 +3,11 @@ package just.plotcontests;
 import net.justminecraft.plots.JustPlots;
 import net.justminecraft.plots.Plot;
 import net.justminecraft.plots.PlotId;
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.*;
 import org.bukkit.entity.Entity;
@@ -96,6 +99,11 @@ public class ContestCommand implements CommandExecutor, TabCompleter {
             else {
                 OfflinePlayer p = Bukkit.getOfflinePlayer(e.uuid);
                 sender.sendMessage(ChatColor.GREEN + p.getName() + " won last week's build contest with a theme of " + Theme.lastWeekTheme());
+                String tp = "/p tp " + e.world + ";" + e.plotid;
+                sender.spigot().sendMessage(new ComponentBuilder("Teleport to it with: ").color(ChatColor.DARK_GREEN)
+                        .append(tp).color(ChatColor.GREEN)
+                        .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(tp).create()))
+                        .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, tp)).create());
             }
         } else if (cmd.equalsIgnoreCase("random")) {
             try {
